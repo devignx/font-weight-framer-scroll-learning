@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;900&display=swap');
+
+*{ 
+  scroll-behavior: smooth;
+}
+
+body{
+  background-color: rgb(12, 11, 22);
+  font-family: Raleway;
+  overflow-x: hidden;
+}
+/* 
+img{
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+
+} */
+
+
+/*---------------HP Classics---------------*/
+
+
+/*centering absolute stuff*/
+
+.centerh{      
+  left: 50%;                        
+  transform: translate(-50%, 0)
+}
+
+.centerv{      
+  top: 50%;                        
+  transform: translate(0, -50%)
+  
+}
+
+
+/*Selection controls*/
+
+::-moz-selection {
+  color: rgb(0, 0, 0); 
+  background: #74aeff;
+}
+
+::selection {
+  color: rgb(0, 0, 0); 
+  background: #74aeff;
+}
+
+.noselect {
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  pointer-events: none;
+}
+
+
+/*media hacks*/
+
+.pc{
+  visibility: visible;
+  display: flex;
+}
+
+.mob{
+  visibility: hidden;
+  display: none;
+}
+
+.hide{
+  display: none;
+  visibility: hidden;
+}
+
+
+/*Scrollbar customized*/
+
+::-webkit-scrollbar-track {
+background-color: transparent;
+overflow: overlay;
+width: 5px;
+z-index: 100;
+}
+
+::-webkit-scrollbar {
+width: 5px;
+overflow: overlay;
+z-index: 100;
+height: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+visibility: visible;
+border-radius: 100px;
+
+background-color: #d8d8d8;
+z-index: 150;
+}
+
+
+/*z-index hacks*/
+
+.toppp{
+  z-index: 9999;
+}
+
+.topppp{
+  z-index: 99999;
+}
+
+.bottt{
+  z-index: -9999; 
+}
+
+.botttt{
+  z-index: -99999; 
+}
+
+
+/*others*/
+
+abbr[title] {
+border-bottom: none !important;
+cursor: inherit !important;
+text-decoration: none !important;
+}
+
+@media screen and (max-width: 1024px) {
+
+.mob{
+visibility: visible;
+display:flex;
+}
+.pc{
+visibility: hidden;
+display: none;
+}
+
+}
+
+
+/*---------------HP Classics---------------*/
