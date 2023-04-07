@@ -2,17 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800;900&display=swap');
 
 *{ 
   scroll-behavior: smooth;
 }
 
-body{
-  background-color: rgb(12, 11, 22);
-  font-family: Raleway;
+body{ 
+  font-family: Manrope;
   overflow-x: hidden;
 }
+/* Default theme */
+.bg-primary {
+  background-color: #2196f3;
+  color: rgb(33, 39, 62);
+}
+
+/* Secondary theme */
+.bg-secondary {
+  background-color: #607d8b;
+  color: rgb(62, 62, 62);
+}
+
+/* Success theme */
+.bg-success {
+  background-color: #4caf50;
+  color: rgb(33, 62, 48);
+}
+
+/* Info theme */
+.bg-info {
+  background-color: #00bcd4;
+  color: rgb(33, 50, 62);
+}
+
+/* Warning theme */
+.bg-warning {
+  background-color: #ffc107;
+  color: rgb(62, 56, 33);
+}
+
+/* Danger theme */
+.bg-danger {
+  background-color: #f44336;
+  color: rgb(62, 39, 33);
+}
+
+
+
 /* 
 img{
   user-select: none;
