@@ -1,51 +1,110 @@
-import React, { useState, useEffect } from 'react';
-import './Carousel.css'; // Import CSS file for styling
+import React, { useEffect, useState } from 'react';
+import Pagination from '../components/Pagination';
 
-const Home = ({ images = Array.from({ length: 6 }, (_, index) => `https://picsum.photos/300/200?text=Image${index + 1}`) }) => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [slide, setSlide] = useState(true);
+const bloglistData = {
+  "bloglist": [
+    {
+      "id": 1,
+      "img": "https://picsum.photos/300/300",
+      "title": "Blog Post 1",
+      "desc": "This is the description of blog post 1.",
+      "link": "https://example.com/blog/post1"
+    },
+    {
+      "id": 2,
+      "img": "https://picsum.photos/300/300",
+      "title": "Blog Post 2",
+      "desc": "This is the description of blog post 2.",
+      "link": "https://example.com/blog/post2"
+    },
+    {
+      "id": 3,
+      "img": "https://picsum.photos/300/300",
+      "title": "Blog Post 3",
+      "desc": "This is the description of blog post 3.",
+      "link": "https://example.com/blog/post3"
+    },
+    {
+      "id": 4,
+      "img": "https://picsum.photos/300/300",
+      "title": "Blog Post 4",
+      "desc": "This is the description of blog post 4.",
+      "link": "https://example.com/blog/post4"
+    },
+    {
+      "id": 5,
+      "img": "https://picsum.photos/300/300",
+      "title": "Blog Post 5",
+      "desc": "This is the description of blog post 5.",
+      "link": "https://example.com/blog/post5"
+    },
+    {
+      "id": 6,
+      "img": "https://picsum.photos/300/300",
+      "title": "Blog Post 5",
+      "desc": "This is the description of blog post 5.",
+      "link": "https://example.com/blog/post5"
+    },
+    {
+      "id": 7,
+      "img": "https://picsum.photos/300/300",
+      "title": "Blog Post 5",
+      "desc": "This is the description of blog post 5.",
+      "link": "https://example.com/blog/post5"
+    },
+    {
+      "id": 8,
+      "img": "https://picsum.photos/300/300",
+      "title": "Blog Post 5",
+      "desc": "This is the description of blog post 5.",
+      "link": "https://example.com/blog/post5"
+    },
+    {
+      "id": 9,
+      "img": "https://picsum.photos/300/300",
+      "title": "Blog Post 5",
+      "desc": "This is the description of blog post 5.",
+      "link": "https://example.com/blog/post5"
+    },
+    {
+      "id": 10,
+      "img": "https://picsum.photos/300/300",
+      "title": "Blog Post 5",
+      "desc": "This is the description of blog post 5.",
+      "link": "https://example.com/blog/post5"
+    },
+    {
+      "id": 11,
+      "img": "https://picsum.photos/300/300",
+      "title": "Blog Post 5",
+      "desc": "This is the description of blog post 5.",
+      "link": "https://example.com/blog/post5"
+    },
+  ]
+}
+
+
+const Home = () => {
+  const [bloglist, setBloglist] = useState([]);
 
   useEffect(() => {
-    if (images && images.length > 0 && slide === true) {
-      const interval = setInterval(() => {
-        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-      }, 3000);
+    const fetchData = async () => {
+      try {
+        setBloglist(bloglistData.bloglist);
+      } catch (error) {
+        console.log('Error fetching blog data:', error);
+      }
+    };
 
-      return () => clearInterval(interval);
-    }
-  }, [images,slide]);
-
-  const renderIndicators = () => {
-    if (images && images.length > 0) {
-      return images.map((_, index) => (
-        <span
-          key={index}
-          className={`indicator ${index === currentImageIndex ? 'active' : ''}`}
-          onClick={() => setCurrentImageIndex(index)}
-        />
-      ));
-    }
-    return null;
-  };
+    fetchData();
+  }, []);
 
   return (
-    <div className="relative pb-16 bg-black p-6">
-      <div className="image-container p-2 bg-red-500 overflow-x-scroll">
-        {
-          images.map((image, index) => (
-            <img
-              key={index}
-              src={image}
-              alt={`${index}`}
-              className={`carousel-image ${index === currentImageIndex ? 'active' : ''}`}
-            />
-          ))
-        }
-      </div>
-      <div onClick={()=>{setSlide(false)}} className="indicators ">{renderIndicators()}</div>
+    <div className='flex flex-col gap-12 p-6 justify-center items-center'>
+      <h1>Blog List</h1>
+      <Pagination blogsPerPage={4} blogs={bloglist} />
     </div>
   );
 };
-
 
 export default Home;
